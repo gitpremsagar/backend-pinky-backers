@@ -33,8 +33,15 @@ export const getProductById = async (req: Request, res: Response) => {
 };
 
 export const createProduct = async (req: Request, res: Response) => {
-  const { productName, description, imageUrl, price, stock, categoryId } =
-    req.body;
+  const {
+    productName,
+    description,
+    imageUrl,
+    price,
+    stock,
+    categoryId,
+    subCategoryId,
+  } = req.body;
   try {
     const product = await prisma.product.create({
       data: {
@@ -44,6 +51,7 @@ export const createProduct = async (req: Request, res: Response) => {
         price,
         stock,
         categoryId,
+        subCategoryId,
       },
     });
     res.json({ product });
@@ -55,8 +63,15 @@ export const createProduct = async (req: Request, res: Response) => {
 
 export const updateProduct = async (req: Request, res: Response) => {
   const { productId } = req.params;
-  const { productName, description, imageUrl, price, stock, categoryId } =
-    req.body;
+  const {
+    productName,
+    description,
+    imageUrl,
+    price,
+    stock,
+    categoryId,
+    subCategoryId,
+  } = req.body;
   try {
     const product = await prisma.product.update({
       where: {
@@ -69,6 +84,7 @@ export const updateProduct = async (req: Request, res: Response) => {
         price,
         stock,
         categoryId,
+        subCategoryId,
       },
     });
     res.json({ product });

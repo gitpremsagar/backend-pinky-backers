@@ -12,10 +12,12 @@ app.get("/", (req, res) => {
 import userRouter from "./routers/user.routes";
 import productRouter from "./routers/product.routes";
 import categoryRouter from "./routers/category.routes";
+import subCategoryRouter from "./routers/subCategory.routes";
 
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/categories", categoryRouter);
+app.use("/api/sub-categories", subCategoryRouter);
 
 const port = process.env.PORT || 3300;
 
