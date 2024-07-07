@@ -9,6 +9,14 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
+import userRouter from "./routers/user.routes";
+import productRouter from "./routers/product.routes";
+import categoryRouter from "./routers/category.routes";
+
+app.use("/api/users", userRouter);
+app.use("/api/products", productRouter);
+app.use("/api/categories", categoryRouter);
+
 const port = process.env.PORT || 3300;
 
 app.listen(port, () => {

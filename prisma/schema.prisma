@@ -20,6 +20,7 @@ model User {
   lastName          String
   contactNumber     String
   deliveryAddressId String?
+  isBlocked         Boolean           @default(false)
   createdAt         DateTime          @default(now())
   updatedAt         DateTime          @updatedAt
   deliveryAddress   DeliveryAddress[]
@@ -87,11 +88,11 @@ model OrderItem {
 }
 
 model Category {
-  categoryId String    @id @default(cuid()) @map("_id")
-  name       String
-  createdAt  DateTime  @default(now())
-  updatedAt  DateTime  @updatedAt
-  products   Product[]
+  categoryId   String    @id @default(cuid()) @map("_id")
+  categoryName String
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  products     Product[]
 }
 
 model Review {
